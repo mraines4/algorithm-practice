@@ -146,5 +146,44 @@ function findAvg(arr) {
     return (total / arr.length)
 }
 
-console.log(findAvg([1,2,3,5]));
+// console.log(findAvg([1,2,3,5]));
+
+
+function linearSearch (array, number) {
+    for (let i = 0; i < array.length; i++) {    
+        if (array[i] === number) {
+            return i;
+        }
+    }
+    return -1;
+}
+
+function linearSearch2 (array, number) {
+    // if (array.includes(number)) {
+        return array.indexOf(number);
+    // }
+    // return -1;
+}
+
+// console.log(linearSearch2([1,2,3,5,7,8,10], 8));
+
+
+function binarySearch(array, number) {
+    let middle = Math.floor(array.length / 2);
+    let end = array.length -1;
+    let start = array[0];
+    while (!(number === array[middle])) {
+        if (number > array[middle]) {
+            start = middle + 1;
+        } else {
+            end = middle -1;
+        }
+        middle = Math.floor((start + end)/2)
+    }
+    if (number === array[middle]){
+        return middle;
+    }
+}
+
+console.log(binarySearch([1,2,3,5,7,8,10], 8));
 
