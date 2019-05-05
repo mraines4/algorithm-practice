@@ -62,4 +62,89 @@ var firstUniqChar = function(s) {
     return -1
 };
 
-console.log(firstUniqChar('loveleetcode'));
+// console.log(firstUniqChar('loveleetcode'));
+
+
+/////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////
+
+const reverse = (string) => {
+    return string.split('').reverse().join('')
+    
+}
+
+function reverseTwo(string) {
+    const arr = string.split('');
+    const mutateArr = [...arr]
+    const newArr = []
+    arr.forEach(letter => {
+        const end = mutateArr.pop();
+        newArr.push(end);
+    })
+    return newArr.join('')
+}
+
+function reverse3(string) {
+    let newString = '';
+    for (let i = string.length - 1; i >= 0; i --) {
+        newString += string[i]
+    }
+    return newString 
+}
+
+
+// console.log(reverse3("Hello World"));
+
+/////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////
+
+
+function findMostCommon(arr) {
+    let freqCounter = {};
+    let mostCommon = 0;
+    arr.forEach(num => {
+        if (freqCounter.hasOwnProperty(num)) {
+            freqCounter[num] += 1;
+        } else {
+            freqCounter[num] = 1
+        }
+
+        if (freqCounter[num] > mostCommon) {
+            mostCommon = num;
+        }
+    })
+    return mostCommon;
+}
+
+function mostCommon2(arr) {
+    let obj = {};
+    let mostCommon = 0;
+    arr.forEach(num => {
+        if (obj[num] === undefined) {
+            obj[num] = 1;
+        } else {
+            obj[num] += 1;
+        }
+
+        if(obj[num] > mostCommon) {
+            mostCommon = num;
+        }
+    })
+    return mostCommon;
+}
+
+// console.log(mostCommon2([1,2,3,5,6,7,7,8,8,7,9]));
+
+/////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////
+
+function findAvg(arr) {
+    let total = 0
+    arr.forEach(item => {
+        total += item
+    })
+    return (total / arr.length)
+}
+
+console.log(findAvg([1,2,3,5]));
+
