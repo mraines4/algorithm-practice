@@ -75,12 +75,12 @@ const reverse = (string) => {
 
 function reverseTwo(string) {
     const arr = string.split('');
-    const mutateArr = [...arr]
+    // const mutateArr = [...arr]
     const newArr = []
-    arr.forEach(letter => {
-        const end = mutateArr.pop();
+    for (let i = 0; i< string.length; i++) {
+        const end = arr.pop();
         newArr.push(end);
-    })
+    }
     return newArr.join('')
 }
 
@@ -93,7 +93,7 @@ function reverse3(string) {
 }
 
 
-// console.log(reverse3("Hello World"));
+// console.log(reverseTwo("Hello World"));
 
 /////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////
@@ -170,13 +170,20 @@ function linearSearch2 (array, number) {
 
 function binarySearch(array, number) {
     let middle = Math.floor(array.length / 2);
+    console.log(middle);
     let end = array.length -1;
-    let start = array[0];
+    let start = 0;
+    console.log('start',start);
+    console.log('end', end);
     while (!(number === array[middle])) {
         if (number > array[middle]) {
             start = middle + 1;
+            console.log('start',start);
+            console.log('end', end);
         } else {
             end = middle -1;
+            console.log('start', start);
+            console.log('end', end);
         }
         middle = Math.floor((start + end)/2)
     }
@@ -185,5 +192,5 @@ function binarySearch(array, number) {
     }
 }
 
-console.log(binarySearch([1,2,3,5,7,8,10], 8));
+console.log(binarySearch([5,7,8,10,12,14,15,16,17, 18], 8));
 
